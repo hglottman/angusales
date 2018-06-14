@@ -47,6 +47,16 @@ router.put('/:customerId', (req, res) => {
   }
 })
 
+router.delete('/:customerId', (req, res) => {
+  customerId = req.params.customerId
+  customerModle.deleteCustomer(customerId).then(data => {
+    res.send(JSON.stringify(data))
+  })
+  err => {
+    console.error(err)
+  }
+})
+
 
 
 module.exports = router

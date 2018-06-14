@@ -25,11 +25,11 @@ class CustomerModel {
     }
 
     getCustomer(customerId) {
-        return this.customer.findOne( {
+        return this.customer.findOne({
             where: {
                 customerId: customerId
             }
-        })   
+        })
     }
 
     createCustomer(newCustomer) {
@@ -45,19 +45,32 @@ class CustomerModel {
     }
 
     updateCustomer(customerId, customerToUpdate) {
-        console.log(customerToUpdate)
         return this.customer.update(customerToUpdate, {
             where: {
                 customerId: customerId
             }
-        }).then( (req, res) => {
-      return this.getCustomer(customerId);
-    })
-    err => {
-        console.error(err)
-      }
+        }).then((req, res) => {
+            return this.getCustomer(customerId);
+        })
+        err => {
+            console.error(err)
+        }
+    }
+
+    deleteCustomer(customerId) {
+        return this.customer.destroy({
+            where: {
+                customerId: customerId
+            }
+        }).then((req, res) => {
+            return this.getAllCustomers();
+        })
+        err => {
+            console.error(err)
+        }
+    }
 }
-}
+
 
 
 
