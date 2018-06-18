@@ -1,0 +1,13 @@
+<div class='header'>
+  <h2>Customers</h2>
+  <br>
+  <div class="buttons">
+      <button mat-button>Export List</button>
+      <button mat-button color="primary" (click)="addCustomer()">Create new Customer</button>
+   </div>
+
+   <div *ngIf="display == true" class="expander-container">
+      <app-add-customer></app-add-customer>
+    </div>
+</div>
+

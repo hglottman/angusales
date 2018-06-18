@@ -14,7 +14,6 @@ router.get('/', (req,res) => {
 
 router.post('/', (req, res) => {
   newCompany = req.body
-  console.log(newCompany)
   companyModle.createCompany(newCompany).then(() => {
     res.send(JSON.stringify(newCompany))
   })

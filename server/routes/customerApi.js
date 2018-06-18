@@ -24,8 +24,7 @@ router.get('/:customerId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  newCustomer = req.body
-  console.log(newCustomer)
+  newCustomer = req.body.customer
   customerModle.createCustomer(newCustomer).then((data) => {
     res.send(JSON.stringify(data))
   })
@@ -37,9 +36,7 @@ router.post('/', (req, res) => {
 router.put('/:customerId', (req, res) => {
   customerToUpdate = req.body
   customerId = req.params.customerId
-  console.log(customerToUpdate)
   customerModle.updateCustomer(customerId, customerToUpdate).then((data) => {
-    console.log(data) //data = [0] || [1]
     res.send(JSON.stringify(data))
   })
   err => {

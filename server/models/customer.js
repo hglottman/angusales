@@ -33,7 +33,6 @@ class CustomerModel {
     }
 
     createCustomer(newCustomer) {
-        console.log(newCustomer)
         return this.customer.create({
             customerId: null,
             firstName: newCustomer.firstName,

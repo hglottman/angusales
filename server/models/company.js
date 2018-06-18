@@ -26,7 +26,6 @@ class CompanyModel {
     }
 
     createCompany(newCompany) {
-        console.log(newCompany)
         return this.company.create({
             companyId: null,
             companyName: newCompany.companyName,
