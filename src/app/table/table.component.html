@@ -24,8 +24,8 @@
 
   <!-- Company Column -->
   <ng-container matColumnDef="companyId">
-    <th mat-header-cell *matHeaderCellDef> Company Id </th>
-    <td mat-cell *matCellDef="let element"> {{element.companyId}} </td>
+    <th mat-header-cell *matHeaderCellDef> Company Name </th>
+    <td mat-cell *matCellDef="let element"> {{ showCompanyName(element)}}</td>
   </ng-container>
 
   <!-- Email Column -->

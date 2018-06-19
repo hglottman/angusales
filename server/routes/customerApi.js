@@ -35,7 +35,6 @@ router.post('/', (req, res) => {
 
 router.put('/:customerId', (req, res) => {
   customerToUpdate = req.body.customer
-  console.log(customerToUpdate + 'customerApi');
   customerId = req.params.customerId
   customerModle.updateCustomer(customerId, customerToUpdate).then((data) => {
     res.send(JSON.stringify(data))

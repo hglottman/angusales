@@ -1,6 +1,6 @@
 
 let connect = require('../dataAccess');
-let company = require('./company');
+let {company} = require('./company');
 var Sequelize = require('sequelize');
 
 
@@ -18,10 +18,11 @@ class CustomerModel {
         }, {
                 freezeTableName: { type: true }//ntice,add this as adittional object 
             });
+            this.customer.belongsTo(company, {foreignKey: 'companyId'})
     }
 
     getAllCustomers() {
-        return this.customer.findAll();
+        return this.customer.findAll({include: {model: company}});
     }
 
     getCustomer(customerId) {

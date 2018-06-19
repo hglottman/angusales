@@ -48,9 +48,16 @@ export class TableComponent implements OnInit {
       this.customerData = customer;
     } else { this.display = false;
   }
-    // this.customerService.getCustomer(customerId);
-    // console.log(customer);
-    // this.customerService.editCustomer(customer);
+
+
+  }
+
+  showCompanyName(element) {
+    if (element.company) {
+      return element.company.companyName;
+    } else {
+    return 'no company name';
+    }
 
   }
 

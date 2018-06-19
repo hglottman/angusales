@@ -23,6 +23,7 @@ export class CustomerService {
     const observable = this.http.get<Customer[]>('/customerApi');
       observable.subscribe((data) => {
         this.allCustomers = data;
+        console.log(data);
         this.allCustomersSubject.next(data);
       });
   }
