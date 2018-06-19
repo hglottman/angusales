@@ -1,0 +1,24 @@
+<div class="content-container">
+  <form class="form">
+    <h3>Edit Customer</h3>
+    <mat-form-field>
+      <input matInput [(ngModel)]="customer.firstName" placeholder = "{{customer.firstName}}" name ="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="customer.lastName" placeholder = "{{customer.lastName}}" name ="lastname">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="customer.companyId" placeholder="Company Id"  name ="companyid">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="customer.email" placeholder="Email" name ="emil">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="customer.phone" placeholder="Phone Number" name ="phone">
+    </mat-form-field>
+
+    <button mat-button (click)="updateCustomer(customer)" color="primary">Update</button>
+
+  </form>
+
+</div>

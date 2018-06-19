@@ -20,6 +20,7 @@ import { TableComponent } from './table/table.component';
 import { FilterComponent } from './filter/filter.component';
 import { CustomerService } from './customer.service';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 enableProdMode();
 
@@ -30,7 +31,8 @@ enableProdMode();
     BodyComponent,
     HeaderComponent,
     FilterComponent,
-    AddCustomerComponent],
+    AddCustomerComponent,
+    EditCustomerComponent],
   imports: [
     MatIconModule,
     MatFormFieldModule,

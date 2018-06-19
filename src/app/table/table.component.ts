@@ -17,6 +17,9 @@ export class TableComponent implements OnInit {
 
   customers: Customer[];
   displayedColumns = ['customerId', 'firstName', 'lastName', 'companyId', 'email', 'phone', 'actions'];
+  display = false;
+  customerData: Customer;
+
 
   private dataSource;
 
@@ -39,9 +42,16 @@ export class TableComponent implements OnInit {
       this.customerService.deleteCustomer(customerId);
   }
 
-  // editCustomer(customerId) {
-  //   this.customerService.deleteCustomer(customerId);
+  editCustomer(customer) {
+    if (this.display === false) {
+      this.display = true;
+      this.customerData = customer;
+    } else { this.display = false;
+  }
+    // this.customerService.getCustomer(customerId);
+    // console.log(customer);
+    // this.customerService.editCustomer(customer);
 
-  // }
+  }
 
 }

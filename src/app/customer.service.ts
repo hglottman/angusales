@@ -27,6 +27,10 @@ export class CustomerService {
       });
   }
 
+  getCustomer(customerId) {
+    return this.http.get<any>('/customerApi/' + customerId);
+  }
+
   addCustomer(newCustomer: Customer): void {
     this.http.post<Customer>('/customerApi', { customer: newCustomer }).subscribe(() => {
       this.getAllCustomers();
@@ -37,6 +41,12 @@ export class CustomerService {
       this.http.delete<Customer>('/customerApi/' + customerId).subscribe(() => {
         this.getAllCustomers();
       });
+  }
+
+  editCustomer(updatedCustomer) {
+    this.http.put<Customer>('/customerApi/' + updatedCustomer.customerId, { customer: updatedCustomer }).subscribe(() => {
+      this.getAllCustomers();
+    });
   }
 
   filterCustomers(filterString) {
@@ -50,46 +60,7 @@ export class CustomerService {
 
 }
 
-  // getMoviesByFilter(filter): Observable<any[]> {
-  //   return this.http.get<any[]>('https://anguflix-api.herokuapp.com/api/movies?title=' + filter.title);
-  // }
-
-  //   removeMovie(movie) {
-  //     console.log(movie.id);
-  //   this.http.delete<any[]>('https://anguflix-api.herokuapp.com/api/movies?id=' + movie.id);
-  //   this.getMovies();
-
-  //   const id: number = movie.id;
-
-    // const existingMovieIndex = (myId) => {
-    //   for (let i = 0; i < this.selectedMovies.length; i++) {
-    //     if (this.selectedMovies[i].id === myId) {
-    //       return i;
-    //     }
-    //   }
-    // };
-
-    // this.selectedMovies.splice(existingMovieIndex(id), 1);
-    // this.user.budget += movie.price;
-    // return this.selectedMovies;
 
 
-
-  // getSelectedMovies(): Movie[] {
-  //   return this.selectedMovies;
-  // }
-
-
-//   addMovie(movie: Movie) {
-//     movie.id = this.getSelectedMovies().length + 1;
-//     this.selectedMovies.push(movie);
-//   }
-
-
-//   updateBudget(movie: Movie) {
-//     this.user.budget -= movie.price;
-//   }
-
-// }
 
 
